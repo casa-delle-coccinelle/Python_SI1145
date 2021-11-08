@@ -155,12 +155,14 @@ class SI1145(object):
 
                 # Create I2C device.
                 self._device = smbus2.SMBus(self.i2c_bus)
-
+                
+        def begin(self):
                 #reset device
                 self._reset()
 
                 # Load calibration values.
                 self._load_calibration()
+                return 1
 
         # device reset
         def _reset(self):
