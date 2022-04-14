@@ -164,6 +164,9 @@ class SI1145(object):
                 self._load_calibration()
                 return 1
 
+        def close(self):
+                self._device.close()
+
         # device reset
         def _reset(self):
                 self._device.write_byte_data(self.addr, SI1145_REG_MEASRATE0, 0)
